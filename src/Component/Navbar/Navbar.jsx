@@ -1,14 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
+
+import logo from "../../assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
-
-    const nav = 
-    <div className="flex gap-5">
-    <Link to={"/"}><li>Home</li></Link>
-    <Link to={"/apps"}><li>Apps</li></Link>
-    <Link to={"/installation"}><li>Intallation</li></Link>
+  const nav = (
+    <div className="md:flex gap-5 text-lg">
+      <Link to={"/"}>
+        <li>Home</li>
+      </Link>
+      <Link to={"/apps"}>
+        <li>Apps</li>
+      </Link>
+      <Link to={"/installation"}>
+        <li>Intallation</li>
+      </Link>
     </div>
+  );
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -39,18 +49,17 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"}>
-        <a className="text-xl">
-            <img src="../../assets/hero.png" alt="" />
-        <h1>AppNest</h1>
-        </a></Link>
+          <a className="flex items-center gap-2">
+            <img className="w-[50px]" src={logo} alt="" />
+            <h1 className="text-2xl font-bold">AppNest</h1>
+          </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {nav}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{nav}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to={"https://github.com/sohel-tech4/appnest.git"}><a className="btn md:text-lg bg-gradient-to-r from-[#632EE3] to-[#9F62F2]"> <FaGithub /> Contribute</a></Link>
       </div>
     </div>
   );
